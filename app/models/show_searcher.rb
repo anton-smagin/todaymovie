@@ -1,12 +1,11 @@
-class Shedule
+class ShowSearcher
   def find_cheapest
 
   end
 
-  def self.find_cheapest_by_title(movie)
-    # 'http://kinohod.ru/movie/9950/'
-    url = Movie.find_by(title: movie.mb_chars.downcase.to_s).link
-    html = Net::HTTP.get(URI(url))
+  def find_cheapest(movie)
+    # 'http://kinohod.ru/movie/9950/' .mb_chars.downcase.to_s
+    html = Net::HTTP.get(URI(movie.link))
     doc = Nokogiri::HTML(html)
     movie_info = []
     doc.css('.mblock').each do |block|
@@ -23,7 +22,9 @@ class Shedule
     cheapest_showes(movie_info)
   end
 
-  def self.cheapest_showes(movie_info)
+  private
+
+  def cheapest_showes(movie_info)
     cheapest_price = 100_000
     cheapest_showes = []
     movie_info.each do |show|
@@ -41,7 +42,7 @@ class Shedule
     cheapest_showes
   end
 
-  def self.beautify_cinema_theater(data)
+  def beautify_cinema_theater(data)
     baloon = data.first.second['balloon'] # what?????
     {name: baloon['cinema_name'],
      address: baloon['cinema_address']}
