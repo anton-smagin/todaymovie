@@ -13,10 +13,12 @@ import VueAxios from 'vue-axios';
 import App from './../components/app.vue';
 Vue.use(VueAxios, axios);
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(document.createElement('app'))
+  // document.body.appendChild(document.createElement('app'))
   const app = new Vue({
     el: 'app',
     template: '<App/>',
-    components: { App }
+    components: {
+      'App': App
+    }
   });
 });

@@ -8,9 +8,17 @@ class MoviesController < ApplicationController
   end
 
   def find_cheapest
-    if movie = Movie.find(title: params['title'].mb_chars.downcase.to_s)
+    if movie = Movie.where('lower(title) = ?', params['title'].mb_chars.downcase.to_s).first
       results = ShowSearcher.new.find_cheapest(movie)
       render json: results, status: 200
+    else
+      render json: {error: 'Ничего не найдено'}.to_json, status: 404
+    end
+  end
+
+  def titles
+    if titles = Movie.all.pluck('title')
+      render json: titles, status: 200
     else
       render json: {error: 'Ничего не найдено'}.to_json, status: 404
     end

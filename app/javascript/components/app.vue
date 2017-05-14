@@ -1,14 +1,18 @@
 <template>
   <div class="col-xs-10 col-xs-offset-1"  id="app">
-    <form action="/">
-    <div class="form-group">
+    <form action="/" id="search-form">
+    <autocomplete @select='updateMovieValue' :suggestions="movies" ></autocomplete>
+<!--     <div class="form-group">
       <input type="text" class="form-control" placeholder="Введите название фильма" id="search-movie" v-model="search_query">
-    </div>
+    </div> -->
     <div class="form-group">
-      <button type="submit" class="btn btn-default" @click='find_movie'>Искать</button>
+      <button type="submit" class="btn btn-default" @click='findMovie'>Искать</button>
     </div>
     </form>
     <div class="row">
+    <div :class="error.class" v-show="showErrors">
+      {{error.message}}
+    </div>
     <table class="table table-striped" v-show="showResults">
     <thead>
       <tr>
@@ -34,26 +38,41 @@
 </template>
 
 <script>
+import autocomplete from './autocomplete.vue';
   export default {
     data: function () {
       return {
         showes: [],
-        search_query: '',
+
         result_message: '',
+        error:{
+          message: '',
+          class: 'alert-warning'
+        },
+        movies : [],
+        movieValue: ''
+
       }
     },
     computed:{
       showResults(){
         return this.showes.length != 0;
+      },
+      showErrors(){
+        return this.error.message.length != 0;
+      },
+      value(){
+        return autocomplete.selection;
       }
     },
     methods: {
-      find_movie(e){
+      findMovie(e){
         e.preventDefault();
         const that = this
-        this.axios.get(`cheapest_by_title?title=${this.search_query}`).then(function(response) {
+        that.showes = [];
+        this.axios.get(`cheapest_by_title?title=${this.movieValue}`).then((response) => {
+            this.clearError();
             that.result_message = response.data;
-            that.showes = [];
             response.data.forEach((info) => {
               that.showes.push({
                 theater: info.cinema.name,
@@ -63,8 +82,30 @@
               });
             })
             console.log(that.result_message);
-        })
+        }).catch((e) => {
+          this.error.message = e.response.data.error;
+        });
+      },
+      moviePredict(){
+        this.axios.get('movietitles').then((response) => {
+          console.log(response.data);
+          this.movies = response.data;
+        }).catch((e) => {
+          this.error.message = e.response.data.error;
+        });
+      },
+      clearError(){
+        this.error.message = '';
+      },
+      updateMovieValue(data){
+        this.movieValue = data;
       }
+    },
+    components:{
+      'autocomplete': autocomplete
+    },
+    mounted(){
+      this.moviePredict();
     }
   }
 </script>
