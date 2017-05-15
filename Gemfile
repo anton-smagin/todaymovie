@@ -37,15 +37,16 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'awesome_print'
 gem 'nokogiri'
+# Adds support for Capybara system testing and selenium driver
+gem 'capybara', '~> 2.13.0'
+gem 'poltergeist'
+gem 'capybara-screenshot'
+gem 'database_cleaner'
+
 group :development, :test do
   gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13.0'
-  #gem 'selenium-webdriver'
-  gem 'poltergeist'
-  gem 'capybara-screenshot'
 end
 
 group :development do

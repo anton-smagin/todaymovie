@@ -1,12 +1,10 @@
 <template>
   <div class="col-xs-10 col-xs-offset-1"  id="app">
-    <form action="/" id="search-form">
+    <form action="/" id="search-form" @submit="findMovie">
     <autocomplete @select='updateMovieValue' :suggestions="movies" ></autocomplete>
-<!--     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Введите название фильма" id="search-movie" v-model="search_query">
-    </div> -->
     <div class="form-group">
-      <button type="submit" class="btn btn-default" @click='findMovie'>Искать</button>
+      <button type="submit" class="btn btn-default">Искать</button>
+      <i v-show="loading" class="fa fa-spinner fa-spin"></i>
     </div>
     </form>
     <div class="row">
@@ -47,11 +45,11 @@ import autocomplete from './autocomplete.vue';
         result_message: '',
         error:{
           message: '',
-          class: 'alert-warning'
+          class: 'alert alert-warning'
         },
         movies : [],
-        movieValue: ''
-
+        movieValue: '',
+        loading: false
       }
     },
     computed:{
@@ -68,22 +66,28 @@ import autocomplete from './autocomplete.vue';
     methods: {
       findMovie(e){
         e.preventDefault();
+        this.loading = true;
         const that = this
         that.showes = [];
         this.axios.get(`cheapest_by_title?title=${this.movieValue}`).then((response) => {
-            this.clearError();
-            that.result_message = response.data;
-            response.data.forEach((info) => {
-              that.showes.push({
-                theater: info.cinema.name,
-                address: info.cinema.address,
-                time: info.show.time,
-                price: info.show.price,
-              });
-            })
-            console.log(that.result_message);
+          this.clearError();
+          that.result_message = response.data;
+          if(response.data.length == 0){
+             this.error.message = 'К сожалению, ничего не найдено';
+          }
+          response.data.forEach((info) => {
+            that.showes.push({
+              theater: info.cinema.name,
+              address: info.cinema.address,
+              time: info.show.time,
+              price: info.show.price,
+            });
+          })
+          console.log(that.result_message);
+          this.loading = false;
         }).catch((e) => {
           this.error.message = e.response.data.error;
+          this.loading = false;
         });
       },
       moviePredict(){

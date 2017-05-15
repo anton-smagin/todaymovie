@@ -5,21 +5,23 @@ class ShowSearcher
 
   def find_cheapest(movie)
     # 'http://kinohod.ru/movie/9950/' .mb_chars.downcase.to_s
-    html = Net::HTTP.get(URI(movie.link))
-    doc = Nokogiri::HTML(html)
-    movie_info = []
-    doc.css('.mblock').each do |block|
-      showes = []
-      block.css('.time').css('.root').each do |tblock|
-        showes << { time: tblock.css('h1').text, price: tblock.css('.second').text.scan(/\d+/).first.to_i}
+    Rails.cache.fetch("#{movie}/cheapest_show", expires_in: 15.minutes) do
+      html = Net::HTTP.get(URI(movie.link))
+      doc = Nokogiri::HTML(html)
+      movie_info = []
+      doc.css('.mblock').each do |block|
+        showes = []
+        block.css('.time').css('.root').each do |tblock|
+          showes << { time: tblock.css('h1').text, price: tblock.css('.second').text.scan(/\d+/).first.to_i}
+        end
+        movie_info <<
+         {
+          cinema_theater: JSON.parse(block['data-cinema']),
+          time_table: showes
+         }
       end
-      movie_info <<
-       {
-        cinema_theater: JSON.parse(block['data-cinema']),
-        time_table: showes
-       }
+      cheapest_showes(movie_info)
     end
-    cheapest_showes(movie_info)
   end
 
   private
