@@ -1,6 +1,6 @@
 <template>
   <div class="col-xs-10 col-xs-offset-1"  id="app">
-    <form action="/" id="search-form" @submit="findMovie">
+    <form action="" id="search-form" @submit="findMovie">
     <autocomplete @select='updateMovieValue' :suggestions="movies" ></autocomplete>
     <div class="form-group">
       <button type="submit" class="btn btn-default">Искать</button>

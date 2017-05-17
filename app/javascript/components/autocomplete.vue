@@ -50,31 +50,30 @@ export default {
         this.selection = this.matches[this.current];
         this.$emit('select', this.selection);
         this.open = false;
-        document.querySelector('#search-form').submit();
     },
 
     //When up pressed while suggestions are open
     up() {
-        if(this.current > 0)
-            this.current--;
+      if(this.current > 0)
+        this.current--;
     },
 
     //When up pressed while suggestions are open
     down() {
-        if(this.current < this.suggestions.length - 1)
-            this.current++;
+      if(this.current < this.suggestions.length - 1)
+        this.current++;
     },
 
     //For highlighting element
     isActive(index) {
-        return index === this.current;
+      return index === this.current;
     },
 
     //When the user changes input
     change() {
-        if (this.open == false) {
-            this.open = true;
-            this.current = 0;
+      if (this.open == false) {
+        this.open = true;
+        this.current = 0;
         }
     },
 
