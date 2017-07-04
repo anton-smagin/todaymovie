@@ -12,6 +12,9 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import App from './../components/app.vue';
 Vue.use(VueAxios, axios);
+let token = document.getElementsByName('csrf-token')[0].getAttribute('content');
+axios.defaults.headers.common['X-CSRF-Token'] = token;
+axios.defaults.headers.common['Accept'] = 'application/json';
 document.addEventListener('DOMContentLoaded', () => {
   // document.body.appendChild(document.createElement('app'))
   const app = new Vue({

@@ -10,6 +10,8 @@ end
 gem 'rails', '~> 5.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
+gem 'rgeo-activerecord'
+gem 'activerecord-postgis-adapter'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -44,9 +46,12 @@ gem 'capybara-screenshot'
 gem 'database_cleaner'
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+  gem 'faker'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do

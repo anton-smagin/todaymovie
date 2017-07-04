@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
   end
 
   def titles
-    if titles = Movie.all.pluck('title')
+    if titles = Movie.with_shows.pluck('title')
       render json: titles, status: 200
     else
       render json: {error: 'Ничего не найдено'}.to_json, status: 404

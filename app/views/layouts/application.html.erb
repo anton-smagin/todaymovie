@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
@@ -24,5 +24,6 @@
       <%= yield %>
     </div>
   </div>
+  <%= javascript_include_tag '/packs/application.js' %>
   </body>
 </html>
