@@ -10,7 +10,7 @@ class ShowSearcher
 
   def find_nearest_by_time(longitude:, latitude:, time:)
     theatres = nearest_theatres(longitude: longitude, latitude: latitude)
-    Show.at(time.to_time).where(theatre_id: theatres.keys).order(:price)
+    Show.at(time.in_time_zone('Moscow')).where(theatre_id: theatres.keys).order(:price)
   end
 
   def find_nearest(location)
@@ -19,7 +19,7 @@ class ShowSearcher
   end
 
   def find_by_time(time)
-    Show.at(time.to_time).order(:price)
+    Show.at(time.in_time_zone('Moscow')).order(:price)
   end
 
   def nearest_theatres(location)
