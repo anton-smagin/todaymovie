@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20170606161002) do
     t.float "longitude"
     t.float "latitude"
     t.string "address"
+    t.geography "latlon", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.geography "latlon", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}, null: false
   end
 
 end

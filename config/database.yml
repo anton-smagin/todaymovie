@@ -84,3 +84,4 @@ production:
   database: todaymovie_production
   username: todaymovie
   password: <%= ENV['TODAYMOVIE_DATABASE_PASSWORD'] %>
+  url: <%= ENV.fetch('DATABASE_URL', '').sub(/^postgres/, "postgis") %>
