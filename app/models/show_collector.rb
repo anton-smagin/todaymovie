@@ -23,7 +23,7 @@ class ShowCollector
     theatre = theatres[beautify_cinema_theater(show[:cinema_theater])[:title]].try(:first) || Theatre.find_or_create_by(beautify_cinema_theater(show[:cinema_theater]))
     show[:time_table].each do |s|
       next if s[:price].zero?
-      time = s[:time].to_time
+      time = s[:time].in_time_zone
       time = time + 1.day if time.utc.to_date == DateTime.yesterday
       shows << {theatre_id: theatre.id,
                 movie_id: movie.id,
