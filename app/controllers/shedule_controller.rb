@@ -9,13 +9,16 @@ class SheduleController < ApplicationController
     shows = if search_params['near_me'] && search_params['with_time']
              ShowSearcher.new.find_nearest_by_time(longitude: search_params['longitude'],
                                                    latitude: search_params['latitude'],
-                                                   time: search_params['show_time'])
+                                                   time: search_params['show_time'],
+                                                   title: search_params['title'])
            elsif search_params['near_me']
-             ShowSearcher.new.find_nearest(longitude: search_params['longitude'], latitude: search_params['latitude'])
+             ShowSearcher.new.find_nearest(longitude: search_params['longitude'],
+                                           latitude: search_params['latitude'],
+                                           title: search_params['title'])
            elsif search_params['with_time']
-             ShowSearcher.new.find_by_time(search_params['show_time'])
+             ShowSearcher.new.find_by_time(title: search_params['title'], time: search_params['show_time'])
            else
-             ShowSearcher.new.find_cheapest
+             ShowSearcher.new.find_cheapest(title: search_params['title'])
            end
     render json: build_json(shows)
   end
