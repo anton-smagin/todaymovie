@@ -26,7 +26,7 @@ class SheduleController < ApplicationController
   def build_json(shows)
     shows.map do |show|
       {cinema: {name: show.theatre.title, address: show.theatre.address},
-       show: {time: show.show_time.strftime('%H:%M').in_time_zone, price: show.price}}
+       show: {time: show.show_time.in_time_zone.strftime('%H:%M'), price: show.price}}
     end.to_json
   end
 

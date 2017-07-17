@@ -67,7 +67,7 @@ import autocomplete from './autocomplete.vue';
         longitude: 0,
         latitude: 0,
         nearMe: false,
-        withoutTime: false,
+        withoutTime: true,
         showTime: '',
         shows: [],
         result_message: '',
