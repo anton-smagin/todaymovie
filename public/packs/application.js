@@ -389,7 +389,7 @@ module.exports = {
   trim: trim
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../buffer/index.js */ 43).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../buffer/index.js */ 45).Buffer))
 
 /***/ }),
 /* 1 */
@@ -10624,7 +10624,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 47)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 51)))
 
 /***/ }),
 /* 12 */,
@@ -10954,13 +10954,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!../../../~/vue-loader/lib/style-compiler/index?{"vue":true,"id":"data-v-3ccec7ac","scoped":true,"hasInlineConfig":false}!../../../~/vue-loader/lib/selector?type=styles&index=0!./app.vue */ 51)
+  __webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!../../../~/vue-loader/lib/style-compiler/index?{"vue":true,"id":"data-v-3ccec7ac","scoped":true,"hasInlineConfig":false}!../../../~/vue-loader/lib/selector?type=styles&index=0!./app.vue */ 61)
 }
 var Component = __webpack_require__(/*! ../../../~/vue-loader/lib/component-normalizer */ 1)(
   /* script */
   __webpack_require__(/*! !babel-loader!../../../~/vue-loader/lib/selector?type=script&index=0!./app.vue */ 40),
   /* template */
-  __webpack_require__(/*! !../../../~/vue-loader/lib/template-compiler/index?{"id":"data-v-3ccec7ac"}!../../../~/vue-loader/lib/selector?type=template&index=0!./app.vue */ 50),
+  __webpack_require__(/*! !../../../~/vue-loader/lib/template-compiler/index?{"id":"data-v-3ccec7ac"}!../../../~/vue-loader/lib/selector?type=template&index=0!./app.vue */ 58),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -11971,8 +11971,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__autocomplete_vue__ = __webpack_require__(/*! ./autocomplete.vue */ 48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__autocomplete_vue__ = __webpack_require__(/*! ./autocomplete.vue */ 52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__autocomplete_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__autocomplete_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modalinfo_vue__ = __webpack_require__(/*! ./modalinfo.vue */ 54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modalinfo_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__modalinfo_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__header_vue__ = __webpack_require__(/*! ./header.vue */ 53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__header_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__header_vue__);
 //
 //
 //
@@ -12034,6 +12038,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -12053,7 +12068,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       movies: [],
       movieValue: '',
       loading: false,
-      times: []
+      times: [],
+      showModal: false
     };
   },
   computed: {
@@ -12068,6 +12084,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     withTime: function withTime() {
       return !this.withoutTime;
+    },
+    hasLocation: function hasLocation() {
+      return this.longitude != 0 && this.latitude != 0;
     }
   },
   methods: {
@@ -12100,7 +12119,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             price: info.show.price
           });
         });
-        console.log(that.result_message);
         _this.loading = false;
       }).catch(function (e) {
         _this.error.message = e.response.data.error;
@@ -12142,7 +12160,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   components: {
-    'autocomplete': __WEBPACK_IMPORTED_MODULE_0__autocomplete_vue___default.a
+    'autocomplete': __WEBPACK_IMPORTED_MODULE_0__autocomplete_vue___default.a,
+    'modalinfo': __WEBPACK_IMPORTED_MODULE_1__modalinfo_vue___default.a,
+    'menuheader': __WEBPACK_IMPORTED_MODULE_2__header_vue___default.a
   },
   mounted: function mounted() {
     this.moviePredict();
@@ -12257,6 +12277,88 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 42 */
+/* exports provided: default */
+/* all exports used */
+/*!**********************************************************************************************************************!*\
+  !*** ./~/babel-loader/lib!./~/vue-loader/lib/selector.js?type=script&index=0!./app/javascript/components/header.vue ***!
+  \**********************************************************************************************************************/
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'menuheader'
+});
+
+/***/ }),
+/* 43 */
+/* exports provided: default */
+/* all exports used */
+/*!*************************************************************************************************************************!*\
+  !*** ./~/babel-loader/lib!./~/vue-loader/lib/selector.js?type=script&index=0!./app/javascript/components/modalinfo.vue ***!
+  \*************************************************************************************************************************/
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'modalinfo'
+});
+
+/***/ }),
+/* 44 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************!*\
@@ -12382,7 +12484,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************!*\
@@ -12401,9 +12503,9 @@ function fromByteArray (uint8) {
 
 
 
-var base64 = __webpack_require__(/*! base64-js */ 42)
-var ieee754 = __webpack_require__(/*! ieee754 */ 45)
-var isArray = __webpack_require__(/*! isarray */ 46)
+var base64 = __webpack_require__(/*! base64-js */ 44)
+var ieee754 = __webpack_require__(/*! ieee754 */ 49)
+var isArray = __webpack_require__(/*! isarray */ 50)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -14184,7 +14286,45 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/global.js */ 6)))
 
 /***/ }),
-/* 44 */
+/* 46 */
+/* unknown exports provided */
+/* all exports used */
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./~/css-loader?sourceMap!./~/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-06f3fd24","scoped":true,"hasInlineConfig":false}!./~/vue-loader/lib/selector.js?type=styles&index=0!./app/javascript/components/modalinfo.vue ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../~/css-loader/lib/css-base.js */ 2)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal-mask[data-v-06f3fd24] {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  -webkit-transition: opacity .3s ease;\n  transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-06f3fd24] {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container[data-v-06f3fd24] {\n  width: 50%;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n          box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-06f3fd24] {\n  margin-top: 0;\n  color: #42b983;\n}\n.modal-body[data-v-06f3fd24] {\n  margin: 20px 0;\n}\n.modal-default-button[data-v-06f3fd24] {\n  float: right;\n}\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n.modal-enter[data-v-06f3fd24] {\n  opacity: 0;\n}\n.modal-leave-active[data-v-06f3fd24] {\n  opacity: 0;\n}\n.modal-enter .modal-container[data-v-06f3fd24], .modal-leave-active .modal-container[data-v-06f3fd24] {\n  -webkit-transform: scale(1.1);\n  transform: scale(1.1);\n}\n\n  ", "", {"version":3,"sources":["/Users/mac/development/rails/todaymovie/app/javascript/components/modalinfo.vue?47e7f734"],"names":[],"mappings":";AAyCA;EACA,gBAAA;EACA,cAAA;EACA,OAAA;EACA,QAAA;EACA,YAAA;EACA,aAAA;EACA,oCAAA;EACA,eAAA;EACA,qCAAA;EAAA,6BAAA;CACA;AAEA;EACA,oBAAA;EACA,uBAAA;CACA;AAEA;EACA,WAAA;EACA,iBAAA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,iDAAA;UAAA,yCAAA;EACA,iCAAA;EAAA,yBAAA;EACA,0CAAA;CACA;AAEA;EACA,cAAA;EACA,eAAA;CACA;AAEA;EACA,eAAA;CACA;AAEA;EACA,aAAA;CACA;AAEA;;;;;;;GAOA;AAEA;EACA,WAAA;CACA;AAEA;EACA,WAAA;CACA;AAEA;EAEA,8BAAA;EACA,sBAAA;CACA","file":"modalinfo.vue","sourcesContent":["<template>\n  <div class=\"modal-mask\">\n    <div class=\"modal-wrapper\">\n      <div class=\"modal-container\">\n\n        <div class=\"modal-header\">\n          <slot name=\"header\">\n            Поиск дешевых кинобилетов в москве\n          </slot>\n        </div>\n\n        <div class=\"modal-body\">\n          <slot name=\"body\">\n          <ul>\n            <li>Поиск работает только на сегодняшний день в городе Москве</li>\n            <li>Когда отмечена галочка рядом со мной, агрегаттор выдает все киносеансы в радиусе 10 км</li>\n            <li>Вся информация взята с сайта kinohod.ru</li>\n            <li>Этот сайт предназначен для не коммерческого использования и сделан ради развлечения</li>\n          </ul>\n          </slot>\n        </div>\n\n        <div class=\"modal-footer\">\n          <slot name=\"footer\">\n            <button class=\"btn btn-default\" @click=\"$emit('close')\">\n              OK\n            </button>\n          </slot>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\n  export default{\n    name: 'modalinfo'\n  }\n</script>\n\n<style scoped>\n.modal-mask {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  transition: opacity .3s ease;\n}\n\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n\n.modal-container {\n  width: 50%;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n\n.modal-header h3 {\n  margin-top: 0;\n  color: #42b983;\n}\n\n.modal-body {\n  margin: 20px 0;\n}\n\n.modal-default-button {\n  float: right;\n}\n\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n\n.modal-enter {\n  opacity: 0;\n}\n\n.modal-leave-active {\n  opacity: 0;\n}\n\n.modal-enter .modal-container,\n.modal-leave-active .modal-container {\n  -webkit-transform: scale(1.1);\n  transform: scale(1.1);\n}\n\n  </style>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+/* 47 */
+/* unknown exports provided */
+/* all exports used */
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./~/css-loader?sourceMap!./~/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-22914d14","scoped":true,"hasInlineConfig":false}!./~/vue-loader/lib/selector.js?type=styles&index=0!./app/javascript/components/header.vue ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../~/css-loader/lib/css-base.js */ 2)(true);
+// imports
+
+
+// module
+exports.push([module.i, "\n#ticket-label[data-v-22914d14]{\n  margin: 13px;\n  font-size: 2em;\n  text-shadow: 2px 2px 2px #ccc;\n}\n#ticket-two[data-v-22914d14]{\n  position: relative;\n  font-size: 1.5em;\n  left: 20px;\n}\n\n", "", {"version":3,"sources":["/Users/mac/development/rails/todaymovie/app/javascript/components/header.vue?aff7ca6a"],"names":[],"mappings":";AAuBA;EACA,aAAA;EACA,eAAA;EACA,8BAAA;CACA;AACA;EACA,mBAAA;EACA,iBAAA;EACA,WAAA;CACA","file":"header.vue","sourcesContent":["<template>\n  <nav class=\"navbar navbar-default\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <div id=\"ticket-label\">\n          <i class=\"fa fa-ticket\" id=\"ticket-two\" aria-hidden=\"true\"></i>\n          <i class=\"fa fa-ticket\" aria-hidden=\"true\"></i>\n        </div>\n      </div>\n      <ul class=\"nav navbar-nav pull-right\">\n        <li><a href=\"#\" @click=\"$emit('showModal')\">О проекте</a></li>\n      </ul>\n    </div>\n  </nav>\n</template>\n\n<script>\n  export default{\n    name: 'menuheader'\n  }\n</script>\n\n<style scoped>\n  #ticket-label{\n    margin: 13px;\n    font-size: 2em;\n    text-shadow: 2px 2px 2px #ccc;\n  }\n  #ticket-two{\n    position: relative;\n    font-size: 1.5em;\n    left: 20px;\n  }\n\n</style>\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+/* 48 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************************************************************************************************************************************************************************!*\
@@ -14197,13 +14337,13 @@ exports = module.exports = __webpack_require__(/*! ../../../~/css-loader/lib/css
 
 
 // module
-exports.push([module.i, "\np[data-v-3ccec7ac] {\n  font-size: 2em;\n  text-align: center;\n}\n.form-group[data-v-3ccec7ac]{\n  margin-top: 25px;\n}\nlabel[data-v-3ccec7ac]{\n  margin: 5px;\n}\nform[data-v-3ccec7ac]{\n  padding: 10px 0;\n}\ninput[data-v-3ccec7ac]{\n  margin: 3px;\n}\n", "", {"version":3,"sources":["/Users/mac/development/rails/todaymovie/app/javascript/components/app.vue?03fc9af2"],"names":[],"mappings":";AAkLA;EACA,eAAA;EACA,mBAAA;CACA;AACA;EACA,iBAAA;CACA;AACA;EACA,YAAA;CACA;AACA;EACA,gBAAA;CACA;AACA;EACA,YAAA;CACA","file":"app.vue","sourcesContent":["<template>\n  <div class=\"col-xs-10 col-xs-offset-1\"  id=\"app\">\n    <form action=\"\" id=\"search-form\" @submit=\"findMovie\">\n    <div class=\"row\">\n      <autocomplete @select='updateMovieValue' :suggestions=\"movies\" ></autocomplete>\n    </div>\n    <div class=\"row\">\n    <div class=\"form-inline\">\n      <div class=\"form-group\">\n        <div class=\"checkbox disabled\">\n          <label><input type=\"checkbox\" name=\"near-me\" value=\"\" v-model=\"nearMe\">Рядом со мной</label>\n        </div>\n        <div class=\"checkbox disabled\">\n          <label><input type=\"checkbox\" name=\"without-time\" value=\"\" v-model=\"withoutTime\">Целый день</label>\n        </div>\n      </div>\n    </div>\n    </div>\n    <div class=\"row\">\n       <div class=\"form-inline\">\n          <div class=\"form-group pull-right\">\n            <button type=\"submit\" class=\"btn btn-default\">Искать</button>\n          </div>\n        <i v-show=\"loading\" class=\"fa fa-spinner fa-spin\"></i>\n        <div class=\"form-group\" v-show=\"withTime\">\n          <label for=\"time-select\">Выберите время:</label>\n          <select class=\"form-control\" id=\"time-select\" v-model=\"showTime\">\n            <option v-for=\"time in times\">{{time}}</option>\n          </select>\n        </div>\n       </div>\n    </div>\n    </form>\n    <div class=\"row\">\n    <div :class=\"error.class\" v-show=\"showErrors\">\n      {{error.message}}\n    </div>\n    <table class=\"table table-striped\" v-show=\"showResults\">\n    <thead>\n      <tr>\n      <td>Кинотеатр</td>\n      <td>Aдрес</td>\n      <td>Время</td>\n      <td>Цена</td>\n      </tr>\n    </thead>\n    <tbody>\n      <tr v-if=\"showResults\" v-for=\"show in shows\">\n        <td>{{show.theater}}</td>\n        <td>{{show.address}}</td>\n        <td>{{show.time}}</td>\n        <td>{{show.price}}</td>\n      </tr>\n    </tbody>\n    </table>\n\n    </div>\n  </div>\n\n</template>\n\n<script>\nimport autocomplete from './autocomplete.vue';\n  export default {\n    data: function () {\n      return {\n        longitude: 0,\n        latitude: 0,\n        nearMe: false,\n        withoutTime: true,\n        showTime: '',\n        shows: [],\n        result_message: '',\n        error:{\n          message: '',\n          class: 'alert alert-warning'\n        },\n        movies : [],\n        movieValue: '',\n        loading: false,\n        times: []\n      }\n    },\n    computed:{\n      showResults(){\n        return this.shows.length != 0;\n      },\n      showErrors(){\n        return this.error.message.length != 0;\n      },\n      value(){\n        return autocomplete.selection;\n      },\n      withTime(){\n        return !this.withoutTime;\n      }\n    },\n    methods: {\n      findMovie(e){\n        e.preventDefault();\n        this.loading = true;\n        const that = this\n        that.shows = [];\n        this.axios.post(`searchmovie`,\n                        { search: {\n                            show_time: this.showTime,\n                            near_me: this.nearMe,\n                            title: this.movieValue,\n                            with_time: this.withTime,\n                            longitude: this.longitude,\n                            latitude: this.latitude\n                            }\n                        }\n                ).then((response) => {\n          this.clearError();\n          that.result_message = response.data;\n          if(response.data.length == 0){\n             this.error.message = 'К сожалению, ничего не найдено';\n          }\n          response.data.forEach( info => {\n            that.shows.push({\n              theater: info.cinema.name,\n              address: info.cinema.address,\n              time: info.show.time,\n              price: info.show.price,\n            });\n          })\n          console.log(that.result_message);\n          this.loading = false;\n        }).catch((e) => {\n          this.error.message = e.response.data.error;\n          this.loading = false;\n        });\n      },\n      moviePredict(){\n        this.axios.get('movietitles').then((response) => {\n          console.log(response.data);\n          this.movies = response.data;\n        }).catch((e) => {\n          this.error.message = e.response.data.error;\n        });\n      },\n      clearError(){\n        this.error.message = '';\n      },\n      updateMovieValue(data){\n        this.movieValue = data;\n      },\n      getTimes(){\n        let times = [];\n        let current_hour = new Date().getHours();\n        while(current_hour < 24){\n          times.push(`${current_hour}:00`);\n          current_hour++;\n        }\n        times = times.concat(['00:00', '01:00', '02:00']);\n        this.times = times;\n      },\n      getLocation(){\n        navigator.geolocation.getCurrentPosition(this.saveLocation);\n      },\n      saveLocation(location){\n        this.longitude = location.coords.longitude;\n        this.latitude = location.coords.latitude;\n      }\n    },\n    components:{\n      'autocomplete': autocomplete\n    },\n    mounted(){\n      this.moviePredict();\n      this.getTimes();\n      this.getLocation(this.saveLocation);\n    }\n  }\n</script>\n\n<style scoped>\n  p {\n    font-size: 2em;\n    text-align: center;\n  }\n  .form-group{\n    margin-top: 25px;\n  }\n  label{\n    margin: 5px;\n  }\n  form{\n    padding: 10px 0;\n  }\n  input{\n    margin: 3px;\n  }\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\np[data-v-3ccec7ac] {\n  font-size: 2em;\n  text-align: center;\n}\n.form-group[data-v-3ccec7ac]{\n  margin-top: 25px;\n}\nlabel[data-v-3ccec7ac]{\n  margin: 5px;\n}\nform[data-v-3ccec7ac]{\n  padding: 10px 0;\n}\ninput[data-v-3ccec7ac]{\n  margin: 3px;\n}\n", "", {"version":3,"sources":["/Users/mac/development/rails/todaymovie/app/javascript/components/app.vue?caf8a6fa"],"names":[],"mappings":";AAkMA;EACA,eAAA;EACA,mBAAA;CACA;AACA;EACA,iBAAA;CACA;AACA;EACA,YAAA;CACA;AACA;EACA,gBAAA;CACA;AACA;EACA,YAAA;CACA","file":"app.vue","sourcesContent":["<template>\n  <div>\n  <menuheader @showModal=\"showModal = true\"></menuheader>\n  <div class=\"container\">\n  <div class=\"row\">\n  <div class=\"col-xs-10 col-xs-offset-1\"  id=\"app\">\n    <modalinfo @close=\"showModal = false\" v-show=\"showModal\"></modalinfo>\n    <form action=\"\" id=\"search-form\" @submit=\"findMovie\">\n    <div class=\"row\">\n      <autocomplete @select='updateMovieValue' :suggestions=\"movies\" ></autocomplete>\n    </div>\n    <div class=\"row\">\n    <div class=\"form-inline\">\n      <div class=\"form-group\">\n        <div v-show=\"hasLocation\" class=\"checkbox disabled\">\n          <label><input type=\"checkbox\" name=\"near-me\" value=\"\" v-model=\"nearMe\">Рядом со мной</label>\n        </div>\n        <div class=\"checkbox disabled\">\n          <label><input type=\"checkbox\" name=\"without-time\" value=\"\" v-model=\"withoutTime\">Целый день</label>\n        </div>\n      </div>\n    </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"form-group\" v-show=\"withTime\">\n          <label for=\"time-select\">Выберите время:</label>\n          <select class=\"form-control\" id=\"time-select\" v-model=\"showTime\">\n            <option v-for=\"time in times\">{{time}}</option>\n          </select>\n        </div>\n        <div class=\"form-inline\">\n          <div class=\"form-group pull-right\">\n            <button type=\"submit\" class=\"btn btn-default\">Искать</button>\n          </div>\n          <i v-show=\"loading\" class=\"fa fa-spinner fa-spin\"></i>\n       </div>\n    </div>\n    </form>\n    <div class=\"row\">\n    <div :class=\"error.class\" v-show=\"showErrors\">\n      {{error.message}}\n    </div>\n    <table class=\"table table-striped\" v-show=\"showResults\">\n    <thead>\n      <tr>\n      <td>Кинотеатр</td>\n      <td>Aдрес</td>\n      <td>Время</td>\n      <td>Цена</td>\n      </tr>\n    </thead>\n    <tbody>\n      <tr v-if=\"showResults\" v-for=\"show in shows\">\n        <td>{{show.theater}}</td>\n        <td>{{show.address}}</td>\n        <td>{{show.time}}</td>\n        <td>{{show.price}}</td>\n      </tr>\n    </tbody>\n    </table>\n\n    </div>\n  </div>\n  </div>\n  </div>\n</div>\n\n\n</template>\n\n<script>\nimport autocomplete from './autocomplete.vue';\nimport modalinfo from './modalinfo.vue';\nimport menuheader from './header.vue';\n  export default {\n    data: function () {\n      return {\n        longitude: 0,\n        latitude: 0,\n        nearMe: false,\n        withoutTime: true,\n        showTime: '',\n        shows: [],\n        result_message: '',\n        error:{\n          message: '',\n          class: 'alert alert-warning'\n        },\n        movies : [],\n        movieValue: '',\n        loading: false,\n        times: [],\n        showModal: false\n      }\n    },\n    computed:{\n      showResults(){\n        return this.shows.length != 0;\n      },\n      showErrors(){\n        return this.error.message.length != 0;\n      },\n      value(){\n        return autocomplete.selection;\n      },\n      withTime(){\n        return !this.withoutTime;\n      },\n      hasLocation(){\n        return this.longitude != 0 && this.latitude != 0;\n      }\n    },\n    methods: {\n      findMovie(e){\n        e.preventDefault();\n        this.loading = true;\n        const that = this\n        that.shows = [];\n        this.axios.post(`searchmovie`,\n                        { search: {\n                            show_time: this.showTime,\n                            near_me: this.nearMe,\n                            title: this.movieValue,\n                            with_time: this.withTime,\n                            longitude: this.longitude,\n                            latitude: this.latitude\n                            }\n                        }\n                ).then((response) => {\n          this.clearError();\n          that.result_message = response.data;\n          if(response.data.length == 0){\n             this.error.message = 'К сожалению, ничего не найдено';\n          }\n          response.data.forEach( info => {\n            that.shows.push({\n              theater: info.cinema.name,\n              address: info.cinema.address,\n              time: info.show.time,\n              price: info.show.price,\n            });\n          })\n          this.loading = false;\n        }).catch((e) => {\n          this.error.message = e.response.data.error;\n          this.loading = false;\n        });\n      },\n      moviePredict(){\n        this.axios.get('movietitles').then((response) => {\n          console.log(response.data);\n          this.movies = response.data;\n        }).catch((e) => {\n          this.error.message = e.response.data.error;\n        });\n      },\n      clearError(){\n        this.error.message = '';\n      },\n      updateMovieValue(data){\n        this.movieValue = data;\n      },\n      getTimes(){\n        let times = [];\n        let current_hour = new Date().getHours();\n        while(current_hour < 24){\n          times.push(`${current_hour}:00`);\n          current_hour++;\n        }\n        times = times.concat(['00:00', '01:00', '02:00']);\n        this.times = times;\n      },\n      getLocation(){\n        navigator.geolocation.getCurrentPosition(this.saveLocation);\n      },\n      saveLocation(location){\n        this.longitude = location.coords.longitude;\n        this.latitude = location.coords.latitude;\n      },\n    },\n    components:{\n      'autocomplete': autocomplete,\n      'modalinfo' : modalinfo,\n      'menuheader' : menuheader\n    },\n    mounted(){\n      this.moviePredict();\n      this.getTimes();\n      this.getLocation(this.saveLocation);\n    }\n  }\n</script>\n\n<style scoped>\n  p {\n    font-size: 2em;\n    text-align: center;\n  }\n  .form-group{\n    margin-top: 25px;\n  }\n  label{\n    margin: 5px;\n  }\n  form{\n    padding: 10px 0;\n  }\n  input{\n    margin: 3px;\n  }\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
 
 /***/ }),
-/* 45 */
+/* 49 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************!*\
@@ -14298,7 +14438,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 46 */
+/* 50 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************************!*\
@@ -14314,7 +14454,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 47 */
+/* 51 */
 /* unknown exports provided */
 /* all exports used */
 /*!******************************!*\
@@ -14509,7 +14649,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 48 */
+/* 52 */
 /* unknown exports provided */
 /* exports used: default */
 /*!****************************************************!*\
@@ -14522,7 +14662,7 @@ var Component = __webpack_require__(/*! ../../../~/vue-loader/lib/component-norm
   /* script */
   __webpack_require__(/*! !babel-loader!../../../~/vue-loader/lib/selector?type=script&index=0!./autocomplete.vue */ 41),
   /* template */
-  __webpack_require__(/*! !../../../~/vue-loader/lib/template-compiler/index?{"id":"data-v-048565af"}!../../../~/vue-loader/lib/selector?type=template&index=0!./autocomplete.vue */ 49),
+  __webpack_require__(/*! !../../../~/vue-loader/lib/template-compiler/index?{"id":"data-v-048565af"}!../../../~/vue-loader/lib/selector?type=template&index=0!./autocomplete.vue */ 55),
   /* styles */
   null,
   /* scopeId */
@@ -14554,7 +14694,105 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 53 */
+/* unknown exports provided */
+/* exports used: default */
+/*!**********************************************!*\
+  !*** ./app/javascript/components/header.vue ***!
+  \**********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!../../../~/vue-loader/lib/style-compiler/index?{"vue":true,"id":"data-v-22914d14","scoped":true,"hasInlineConfig":false}!../../../~/vue-loader/lib/selector?type=styles&index=0!./header.vue */ 60)
+}
+var Component = __webpack_require__(/*! ../../../~/vue-loader/lib/component-normalizer */ 1)(
+  /* script */
+  __webpack_require__(/*! !babel-loader!../../../~/vue-loader/lib/selector?type=script&index=0!./header.vue */ 42),
+  /* template */
+  __webpack_require__(/*! !../../../~/vue-loader/lib/template-compiler/index?{"id":"data-v-22914d14"}!../../../~/vue-loader/lib/selector?type=template&index=0!./header.vue */ 57),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  "data-v-22914d14",
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/mac/development/rails/todaymovie/app/javascript/components/header.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] header.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-22914d14", Component.options)
+  } else {
+    hotAPI.reload("data-v-22914d14", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 54 */
+/* unknown exports provided */
+/* exports used: default */
+/*!*************************************************!*\
+  !*** ./app/javascript/components/modalinfo.vue ***!
+  \*************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!../../../~/vue-loader/lib/style-compiler/index?{"vue":true,"id":"data-v-06f3fd24","scoped":true,"hasInlineConfig":false}!../../../~/vue-loader/lib/selector?type=styles&index=0!./modalinfo.vue */ 59)
+}
+var Component = __webpack_require__(/*! ../../../~/vue-loader/lib/component-normalizer */ 1)(
+  /* script */
+  __webpack_require__(/*! !babel-loader!../../../~/vue-loader/lib/selector?type=script&index=0!./modalinfo.vue */ 43),
+  /* template */
+  __webpack_require__(/*! !../../../~/vue-loader/lib/template-compiler/index?{"id":"data-v-06f3fd24"}!../../../~/vue-loader/lib/selector?type=template&index=0!./modalinfo.vue */ 56),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  "data-v-06f3fd24",
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/mac/development/rails/todaymovie/app/javascript/components/modalinfo.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] modalinfo.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-06f3fd24", Component.options)
+  } else {
+    hotAPI.reload("data-v-06f3fd24", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 55 */
 /* unknown exports provided */
 /* all exports used */
 /*!***********************************************************************************************************************************************************************!*\
@@ -14633,7 +14871,102 @@ if (false) {
 }
 
 /***/ }),
-/* 50 */
+/* 56 */
+/* unknown exports provided */
+/* all exports used */
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./~/vue-loader/lib/template-compiler?{"id":"data-v-06f3fd24"}!./~/vue-loader/lib/selector.js?type=template&index=0!./app/javascript/components/modalinfo.vue ***!
+  \********************************************************************************************************************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "modal-mask"
+  }, [_c('div', {
+    staticClass: "modal-wrapper"
+  }, [_c('div', {
+    staticClass: "modal-container"
+  }, [_c('div', {
+    staticClass: "modal-header"
+  }, [_vm._t("header", [_vm._v("\n          Поиск дешевых кинобилетов в москве\n        ")])], 2), _vm._v(" "), _c('div', {
+    staticClass: "modal-body"
+  }, [_vm._t("body", [_vm._m(0)])], 2), _vm._v(" "), _c('div', {
+    staticClass: "modal-footer"
+  }, [_vm._t("footer", [_c('button', {
+    staticClass: "btn btn-default",
+    on: {
+      "click": function($event) {
+        _vm.$emit('close')
+      }
+    }
+  }, [_vm._v("\n            OK\n          ")])])], 2)])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('ul', [_c('li', [_vm._v("Поиск работает только на сегодняшний день в городе Москве")]), _vm._v(" "), _c('li', [_vm._v("Когда отмечена галочка рядом со мной, агрегаттор выдает все киносеансы в радиусе 10 км")]), _vm._v(" "), _c('li', [_vm._v("Вся информация взята с сайта kinohod.ru")]), _vm._v(" "), _c('li', [_vm._v("Этот сайт предназначен для не коммерческого использования и сделан ради развлечения")])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-06f3fd24", module.exports)
+  }
+}
+
+/***/ }),
+/* 57 */
+/* unknown exports provided */
+/* all exports used */
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./~/vue-loader/lib/template-compiler?{"id":"data-v-22914d14"}!./~/vue-loader/lib/selector.js?type=template&index=0!./app/javascript/components/header.vue ***!
+  \*****************************************************************************************************************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('nav', {
+    staticClass: "navbar navbar-default"
+  }, [_c('div', {
+    staticClass: "container-fluid"
+  }, [_vm._m(0), _vm._v(" "), _c('ul', {
+    staticClass: "nav navbar-nav pull-right"
+  }, [_c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    },
+    on: {
+      "click": function($event) {
+        _vm.$emit('showModal')
+      }
+    }
+  }, [_vm._v("О проекте")])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "navbar-header"
+  }, [_c('div', {
+    attrs: {
+      "id": "ticket-label"
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-ticket",
+    attrs: {
+      "id": "ticket-two",
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" "), _c('i', {
+    staticClass: "fa fa-ticket",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-22914d14", module.exports)
+  }
+}
+
+/***/ }),
+/* 58 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************************************************************************************************************************************************************!*\
@@ -14642,12 +14975,34 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  return _c('div', [_c('menuheader', {
+    on: {
+      "showModal": function($event) {
+        _vm.showModal = true
+      }
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
     staticClass: "col-xs-10 col-xs-offset-1",
     attrs: {
       "id": "app"
     }
-  }, [_c('form', {
+  }, [_c('modalinfo', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showModal),
+      expression: "showModal"
+    }],
+    on: {
+      "close": function($event) {
+        _vm.showModal = false
+      }
+    }
+  }), _vm._v(" "), _c('form', {
     attrs: {
       "action": "",
       "id": "search-form"
@@ -14671,6 +15026,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "form-group"
   }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.hasLocation),
+      expression: "hasLocation"
+    }],
     staticClass: "checkbox disabled"
   }, [_c('label', [_c('input', {
     directives: [{
@@ -14743,16 +15104,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v("Целый день")])])])])]), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "form-inline"
-  }, [_vm._m(0), _vm._v(" "), _c('i', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.loading),
-      expression: "loading"
-    }],
-    staticClass: "fa fa-spinner fa-spin"
-  }), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -14788,7 +15139,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, _vm._l((_vm.times), function(time) {
     return _c('option', [_vm._v(_vm._s(time))])
-  }))])])])]), _vm._v(" "), _c('div', {
+  }))]), _vm._v(" "), _c('div', {
+    staticClass: "form-inline"
+  }, [_vm._m(0), _vm._v(" "), _c('i', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.loading),
+      expression: "loading"
+    }],
+    staticClass: "fa fa-spinner fa-spin"
+  })])])]), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
     directives: [{
@@ -14798,7 +15159,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "showErrors"
     }],
     class: _vm.error.class
-  }, [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n  ")]), _vm._v(" "), _c('table', {
+  }, [_vm._v("\n      " + _vm._s(_vm.error.message) + "\n    ")]), _vm._v(" "), _c('table', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -14808,7 +15169,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "table table-striped"
   }, [_vm._m(1), _vm._v(" "), _c('tbody', _vm._l((_vm.shows), function(show) {
     return (_vm.showResults) ? _c('tr', [_c('td', [_vm._v(_vm._s(show.theater))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(show.address))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(show.time))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(show.price))])]) : _vm._e()
-  }))])])])
+  }))])])], 1)])])], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "form-group pull-right"
@@ -14830,7 +15191,69 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 59 */
+/* unknown exports provided */
+/* all exports used */
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./~/vue-style-loader!./~/css-loader?sourceMap!./~/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-06f3fd24","scoped":true,"hasInlineConfig":false}!./~/vue-loader/lib/selector.js?type=styles&index=0!./app/javascript/components/modalinfo.vue ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../~/css-loader?sourceMap!../../../~/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-06f3fd24","scoped":true,"hasInlineConfig":false}!../../../~/vue-loader/lib/selector.js?type=styles&index=0!./modalinfo.vue */ 46);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(/*! ../../../~/vue-style-loader/lib/addStylesClient.js */ 3)("56f18a79", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js?sourceMap!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-06f3fd24\",\"scoped\":true,\"hasInlineConfig\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./modalinfo.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js?sourceMap!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-06f3fd24\",\"scoped\":true,\"hasInlineConfig\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./modalinfo.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 60 */
+/* unknown exports provided */
+/* all exports used */
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./~/vue-style-loader!./~/css-loader?sourceMap!./~/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-22914d14","scoped":true,"hasInlineConfig":false}!./~/vue-loader/lib/selector.js?type=styles&index=0!./app/javascript/components/header.vue ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../~/css-loader?sourceMap!../../../~/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-22914d14","scoped":true,"hasInlineConfig":false}!../../../~/vue-loader/lib/selector.js?type=styles&index=0!./header.vue */ 47);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(/*! ../../../~/vue-style-loader/lib/addStylesClient.js */ 3)("07a1bb8b", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js?sourceMap!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-22914d14\",\"scoped\":true,\"hasInlineConfig\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./header.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js?sourceMap!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-22914d14\",\"scoped\":true,\"hasInlineConfig\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./header.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 61 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************************************************************************************************************************************************************************************************************************************************!*\
@@ -14841,7 +15264,7 @@ if (false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../~/css-loader?sourceMap!../../../~/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-3ccec7ac","scoped":true,"hasInlineConfig":false}!../../../~/vue-loader/lib/selector.js?type=styles&index=0!./app.vue */ 44);
+var content = __webpack_require__(/*! !../../../~/css-loader?sourceMap!../../../~/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-3ccec7ac","scoped":true,"hasInlineConfig":false}!../../../~/vue-loader/lib/selector.js?type=styles&index=0!./app.vue */ 48);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
