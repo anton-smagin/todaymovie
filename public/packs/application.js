@@ -12047,6 +12047,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -12286,7 +12287,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -14299,7 +14299,7 @@ exports = module.exports = __webpack_require__(/*! ../../../~/css-loader/lib/css
 
 
 // module
-exports.push([module.i, "\n.modal-mask[data-v-06f3fd24] {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  -webkit-transition: opacity .3s ease;\n  transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-06f3fd24] {\n  display: table-cell;\n  vertical-align: middle;\n}\n.modal-container[data-v-06f3fd24] {\n  width: 50%;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n          box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-06f3fd24] {\n  margin-top: 0;\n  color: #42b983;\n}\n.modal-body[data-v-06f3fd24] {\n  margin: 20px 0;\n}\n.modal-default-button[data-v-06f3fd24] {\n  float: right;\n}\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n.modal-enter[data-v-06f3fd24] {\n  opacity: 0;\n}\n.modal-leave-active[data-v-06f3fd24] {\n  opacity: 0;\n}\n.modal-enter .modal-container[data-v-06f3fd24], .modal-leave-active .modal-container[data-v-06f3fd24] {\n  -webkit-transform: scale(1.1);\n  transform: scale(1.1);\n}\n\n  ", "", {"version":3,"sources":["/Users/mac/development/rails/todaymovie/app/javascript/components/modalinfo.vue?47e7f734"],"names":[],"mappings":";AAyCA;EACA,gBAAA;EACA,cAAA;EACA,OAAA;EACA,QAAA;EACA,YAAA;EACA,aAAA;EACA,oCAAA;EACA,eAAA;EACA,qCAAA;EAAA,6BAAA;CACA;AAEA;EACA,oBAAA;EACA,uBAAA;CACA;AAEA;EACA,WAAA;EACA,iBAAA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,iDAAA;UAAA,yCAAA;EACA,iCAAA;EAAA,yBAAA;EACA,0CAAA;CACA;AAEA;EACA,cAAA;EACA,eAAA;CACA;AAEA;EACA,eAAA;CACA;AAEA;EACA,aAAA;CACA;AAEA;;;;;;;GAOA;AAEA;EACA,WAAA;CACA;AAEA;EACA,WAAA;CACA;AAEA;EAEA,8BAAA;EACA,sBAAA;CACA","file":"modalinfo.vue","sourcesContent":["<template>\n  <div class=\"modal-mask\">\n    <div class=\"modal-wrapper\">\n      <div class=\"modal-container\">\n\n        <div class=\"modal-header\">\n          <slot name=\"header\">\n            Поиск дешевых кинобилетов в москве\n          </slot>\n        </div>\n\n        <div class=\"modal-body\">\n          <slot name=\"body\">\n          <ul>\n            <li>Поиск работает только на сегодняшний день в городе Москве</li>\n            <li>Когда отмечена галочка рядом со мной, агрегаттор выдает все киносеансы в радиусе 10 км</li>\n            <li>Вся информация взята с сайта kinohod.ru</li>\n            <li>Этот сайт предназначен для не коммерческого использования и сделан ради развлечения</li>\n          </ul>\n          </slot>\n        </div>\n\n        <div class=\"modal-footer\">\n          <slot name=\"footer\">\n            <button class=\"btn btn-default\" @click=\"$emit('close')\">\n              OK\n            </button>\n          </slot>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\n  export default{\n    name: 'modalinfo'\n  }\n</script>\n\n<style scoped>\n.modal-mask {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  transition: opacity .3s ease;\n}\n\n.modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n\n.modal-container {\n  width: 50%;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n\n.modal-header h3 {\n  margin-top: 0;\n  color: #42b983;\n}\n\n.modal-body {\n  margin: 20px 0;\n}\n\n.modal-default-button {\n  float: right;\n}\n\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n\n.modal-enter {\n  opacity: 0;\n}\n\n.modal-leave-active {\n  opacity: 0;\n}\n\n.modal-enter .modal-container,\n.modal-leave-active .modal-container {\n  -webkit-transform: scale(1.1);\n  transform: scale(1.1);\n}\n\n  </style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.modal[data-v-06f3fd24] {\n  display:block;\n  position: fixed;\n  top: 3%;\n  right: 3%;\n  left: 3%;\n  width: auto;\n  margin: 0;\n}\n  ", "", {"version":3,"sources":["/Users/mac/development/rails/todaymovie/app/javascript/components/modalinfo.vue?94b7c49a"],"names":[],"mappings":";AAyCA;EACA,cAAA;EACA,gBAAA;EACA,QAAA;EACA,UAAA;EACA,SAAA;EACA,YAAA;EACA,UAAA;CACA","file":"modalinfo.vue","sourcesContent":["<template>\n <div id=\"my-modal\" class=\"modal fade in\">\n <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n\n        <div class=\"modal-header\">\n          <slot name=\"header\">\n            Поиск дешевых кинобилетов в москве\n          </slot>\n        </div>\n\n        <div class=\"modal-body\">\n          <slot name=\"body\">\n          <ul>\n            <li>Поиск работает только на сегодняшний день в городе Москве</li>\n            <li>Когда отмечена галочка рядом со мной, агрегаттор выдает все киносеансы в радиусе 10 км</li>\n            <li>Вся информация взята с сайта kinohod.ru</li>\n            <li>Этот сайт предназначен для некоммерческого использования и сделан ради развлечения</li>\n          </ul>\n          </slot>\n        </div>\n\n        <div class=\"modal-footer\">\n          <slot name=\"footer\">\n            <button class=\"btn btn-default\" @click=\"$emit('close')\">\n              OK\n            </button>\n          </slot>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\n  export default{\n    name: 'modalinfo'\n  }\n</script>\n\n<style scoped>\n.modal {\n  display:block;\n  position: fixed;\n  top: 3%;\n  right: 3%;\n  left: 3%;\n  width: auto;\n  margin: 0;\n}\n  </style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -14318,7 +14318,7 @@ exports = module.exports = __webpack_require__(/*! ../../../~/css-loader/lib/css
 
 
 // module
-exports.push([module.i, "\n#ticket-label[data-v-22914d14]{\n  margin: 13px;\n  font-size: 2em;\n  text-shadow: 2px 2px 2px #ccc;\n}\n#ticket-two[data-v-22914d14]{\n  position: relative;\n  font-size: 1.5em;\n  left: 20px;\n}\n\n", "", {"version":3,"sources":["/Users/mac/development/rails/todaymovie/app/javascript/components/header.vue?aff7ca6a"],"names":[],"mappings":";AAuBA;EACA,aAAA;EACA,eAAA;EACA,8BAAA;CACA;AACA;EACA,mBAAA;EACA,iBAAA;EACA,WAAA;CACA","file":"header.vue","sourcesContent":["<template>\n  <nav class=\"navbar navbar-default\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <div id=\"ticket-label\">\n          <i class=\"fa fa-ticket\" id=\"ticket-two\" aria-hidden=\"true\"></i>\n          <i class=\"fa fa-ticket\" aria-hidden=\"true\"></i>\n        </div>\n      </div>\n      <ul class=\"nav navbar-nav pull-right\">\n        <li><a href=\"#\" @click=\"$emit('showModal')\">О проекте</a></li>\n      </ul>\n    </div>\n  </nav>\n</template>\n\n<script>\n  export default{\n    name: 'menuheader'\n  }\n</script>\n\n<style scoped>\n  #ticket-label{\n    margin: 13px;\n    font-size: 2em;\n    text-shadow: 2px 2px 2px #ccc;\n  }\n  #ticket-two{\n    position: relative;\n    font-size: 1.5em;\n    left: 20px;\n  }\n\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n#ticket-label[data-v-22914d14]{\n  margin: 13px;\n  font-size: 2em;\n  text-shadow: 2px 2px 2px #ccc;\n}\n#ticket-two[data-v-22914d14]{\n  position: relative;\n  font-size: 1.5em;\n  left: 20px;\n}\n#about[data-v-22914d14]{\n  position: relative;\n  top: -30px;\n  right: 15px;\n}\n\n", "", {"version":3,"sources":["/Users/mac/development/rails/todaymovie/app/javascript/components/header.vue?02077de6"],"names":[],"mappings":";AAsBA;EACA,aAAA;EACA,eAAA;EACA,8BAAA;CACA;AACA;EACA,mBAAA;EACA,iBAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,WAAA;EACA,YAAA;CACA","file":"header.vue","sourcesContent":["<template>\n  <nav class=\"navbar navbar-default\">\n    <div class=\"container-fluid\">\n    <div class=\"row\">\n\n        <div id=\"ticket-label\">\n            <i class=\"fa fa-ticket\" id=\"ticket-two\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-ticket\" aria-hidden=\"true\"></i>\n        </div>\n         <button class=\"btn btn-default pull-right\" id=\"about\"><a href=\"#\" @click=\"$emit('showModal')\">О проекте</a></button>\n       </div>\n    </div>\n  </nav>\n</template>\n\n<script>\n  export default{\n    name: 'menuheader'\n  }\n</script>\n\n<style scoped>\n  #ticket-label{\n    margin: 13px;\n    font-size: 2em;\n    text-shadow: 2px 2px 2px #ccc;\n  }\n  #ticket-two{\n    position: relative;\n    font-size: 1.5em;\n    left: 20px;\n  }\n  #about{\n    position: relative;\n    top: -30px;\n    right: 15px;\n  }\n\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -14337,7 +14337,7 @@ exports = module.exports = __webpack_require__(/*! ../../../~/css-loader/lib/css
 
 
 // module
-exports.push([module.i, "\np[data-v-3ccec7ac] {\n  font-size: 2em;\n  text-align: center;\n}\n.form-group[data-v-3ccec7ac]{\n  margin-top: 25px;\n}\nlabel[data-v-3ccec7ac]{\n  margin: 5px;\n}\nform[data-v-3ccec7ac]{\n  padding: 10px 0;\n}\ninput[data-v-3ccec7ac]{\n  margin: 3px;\n}\n", "", {"version":3,"sources":["/Users/mac/development/rails/todaymovie/app/javascript/components/app.vue?caf8a6fa"],"names":[],"mappings":";AAkMA;EACA,eAAA;EACA,mBAAA;CACA;AACA;EACA,iBAAA;CACA;AACA;EACA,YAAA;CACA;AACA;EACA,gBAAA;CACA;AACA;EACA,YAAA;CACA","file":"app.vue","sourcesContent":["<template>\n  <div>\n  <menuheader @showModal=\"showModal = true\"></menuheader>\n  <div class=\"container\">\n  <div class=\"row\">\n  <div class=\"col-xs-10 col-xs-offset-1\"  id=\"app\">\n    <modalinfo @close=\"showModal = false\" v-show=\"showModal\"></modalinfo>\n    <form action=\"\" id=\"search-form\" @submit=\"findMovie\">\n    <div class=\"row\">\n      <autocomplete @select='updateMovieValue' :suggestions=\"movies\" ></autocomplete>\n    </div>\n    <div class=\"row\">\n    <div class=\"form-inline\">\n      <div class=\"form-group\">\n        <div v-show=\"hasLocation\" class=\"checkbox disabled\">\n          <label><input type=\"checkbox\" name=\"near-me\" value=\"\" v-model=\"nearMe\">Рядом со мной</label>\n        </div>\n        <div class=\"checkbox disabled\">\n          <label><input type=\"checkbox\" name=\"without-time\" value=\"\" v-model=\"withoutTime\">Целый день</label>\n        </div>\n      </div>\n    </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"form-group\" v-show=\"withTime\">\n          <label for=\"time-select\">Выберите время:</label>\n          <select class=\"form-control\" id=\"time-select\" v-model=\"showTime\">\n            <option v-for=\"time in times\">{{time}}</option>\n          </select>\n        </div>\n        <div class=\"form-inline\">\n          <div class=\"form-group pull-right\">\n            <button type=\"submit\" class=\"btn btn-default\">Искать</button>\n          </div>\n          <i v-show=\"loading\" class=\"fa fa-spinner fa-spin\"></i>\n       </div>\n    </div>\n    </form>\n    <div class=\"row\">\n    <div :class=\"error.class\" v-show=\"showErrors\">\n      {{error.message}}\n    </div>\n    <table class=\"table table-striped\" v-show=\"showResults\">\n    <thead>\n      <tr>\n      <td>Кинотеатр</td>\n      <td>Aдрес</td>\n      <td>Время</td>\n      <td>Цена</td>\n      </tr>\n    </thead>\n    <tbody>\n      <tr v-if=\"showResults\" v-for=\"show in shows\">\n        <td>{{show.theater}}</td>\n        <td>{{show.address}}</td>\n        <td>{{show.time}}</td>\n        <td>{{show.price}}</td>\n      </tr>\n    </tbody>\n    </table>\n\n    </div>\n  </div>\n  </div>\n  </div>\n</div>\n\n\n</template>\n\n<script>\nimport autocomplete from './autocomplete.vue';\nimport modalinfo from './modalinfo.vue';\nimport menuheader from './header.vue';\n  export default {\n    data: function () {\n      return {\n        longitude: 0,\n        latitude: 0,\n        nearMe: false,\n        withoutTime: true,\n        showTime: '',\n        shows: [],\n        result_message: '',\n        error:{\n          message: '',\n          class: 'alert alert-warning'\n        },\n        movies : [],\n        movieValue: '',\n        loading: false,\n        times: [],\n        showModal: false\n      }\n    },\n    computed:{\n      showResults(){\n        return this.shows.length != 0;\n      },\n      showErrors(){\n        return this.error.message.length != 0;\n      },\n      value(){\n        return autocomplete.selection;\n      },\n      withTime(){\n        return !this.withoutTime;\n      },\n      hasLocation(){\n        return this.longitude != 0 && this.latitude != 0;\n      }\n    },\n    methods: {\n      findMovie(e){\n        e.preventDefault();\n        this.loading = true;\n        const that = this\n        that.shows = [];\n        this.axios.post(`searchmovie`,\n                        { search: {\n                            show_time: this.showTime,\n                            near_me: this.nearMe,\n                            title: this.movieValue,\n                            with_time: this.withTime,\n                            longitude: this.longitude,\n                            latitude: this.latitude\n                            }\n                        }\n                ).then((response) => {\n          this.clearError();\n          that.result_message = response.data;\n          if(response.data.length == 0){\n             this.error.message = 'К сожалению, ничего не найдено';\n          }\n          response.data.forEach( info => {\n            that.shows.push({\n              theater: info.cinema.name,\n              address: info.cinema.address,\n              time: info.show.time,\n              price: info.show.price,\n            });\n          })\n          this.loading = false;\n        }).catch((e) => {\n          this.error.message = e.response.data.error;\n          this.loading = false;\n        });\n      },\n      moviePredict(){\n        this.axios.get('movietitles').then((response) => {\n          console.log(response.data);\n          this.movies = response.data;\n        }).catch((e) => {\n          this.error.message = e.response.data.error;\n        });\n      },\n      clearError(){\n        this.error.message = '';\n      },\n      updateMovieValue(data){\n        this.movieValue = data;\n      },\n      getTimes(){\n        let times = [];\n        let current_hour = new Date().getHours();\n        while(current_hour < 24){\n          times.push(`${current_hour}:00`);\n          current_hour++;\n        }\n        times = times.concat(['00:00', '01:00', '02:00']);\n        this.times = times;\n      },\n      getLocation(){\n        navigator.geolocation.getCurrentPosition(this.saveLocation);\n      },\n      saveLocation(location){\n        this.longitude = location.coords.longitude;\n        this.latitude = location.coords.latitude;\n      },\n    },\n    components:{\n      'autocomplete': autocomplete,\n      'modalinfo' : modalinfo,\n      'menuheader' : menuheader\n    },\n    mounted(){\n      this.moviePredict();\n      this.getTimes();\n      this.getLocation(this.saveLocation);\n    }\n  }\n</script>\n\n<style scoped>\n  p {\n    font-size: 2em;\n    text-align: center;\n  }\n  .form-group{\n    margin-top: 25px;\n  }\n  label{\n    margin: 5px;\n  }\n  form{\n    padding: 10px 0;\n  }\n  input{\n    margin: 3px;\n  }\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "\np[data-v-3ccec7ac] {\n  font-size: 2em;\n  text-align: center;\n}\n.form-group[data-v-3ccec7ac]{\n  margin-top: 25px;\n}\nlabel[data-v-3ccec7ac]{\n  margin: 5px;\n}\nform[data-v-3ccec7ac]{\n  padding: 10px 0;\n}\ninput[data-v-3ccec7ac]{\n  margin: 3px;\n}\n", "", {"version":3,"sources":["/Users/mac/development/rails/todaymovie/app/javascript/components/app.vue?2e3c4ba6"],"names":[],"mappings":";AAmMA;EACA,eAAA;EACA,mBAAA;CACA;AACA;EACA,iBAAA;CACA;AACA;EACA,YAAA;CACA;AACA;EACA,gBAAA;CACA;AACA;EACA,YAAA;CACA","file":"app.vue","sourcesContent":["<template>\n<div>\n  <menuheader @showModal=\"showModal = true\"></menuheader>\n  <div class=\"container-fluid\">\n  <div class=\"row\">\n  <div class=\"col-xs-10 col-xs-offset-1\"  id=\"app\">\n    <modalinfo @close=\"showModal = false\" v-show=\"showModal\"></modalinfo>\n    <form action=\"\" id=\"search-form\" @submit=\"findMovie\">\n      <div class=\"row\">\n        <autocomplete @select='updateMovieValue' :suggestions=\"movies\" ></autocomplete>\n      </div>\n      <div class=\"row\">\n      <div class=\"form-inline\">\n        <div class=\"form-group\">\n          <div v-show=\"hasLocation\" class=\"checkbox disabled\">\n            <label><input type=\"checkbox\" name=\"near-me\" value=\"\" v-model=\"nearMe\">Рядом со мной</label>\n          </div>\n          <div class=\"checkbox disabled\">\n            <label><input type=\"checkbox\" name=\"without-time\" value=\"\" v-model=\"withoutTime\">Целый день</label>\n          </div>\n        </div>\n      </div>\n      </div>\n      <div class=\"row\">\n      <div class=\"form-inline\">\n          <div class=\"form-group\" v-show=\"withTime\">\n            <label for=\"time-select\">Выберите время:</label>\n            <select class=\"form-control\" id=\"time-select\" v-model=\"showTime\">\n              <option v-for=\"time in times\">{{time}}</option>\n            </select>\n          </div>\n\n            <div class=\"form-group pull-right\">\n              <button type=\"submit\" class=\"btn btn-default\">Искать</button>\n            </div>\n            <i v-show=\"loading\" class=\"fa fa-spinner fa-spin\"></i>\n         </div>\n      </div>\n    </form>\n    <div class=\"row\">\n    <div :class=\"error.class\" v-show=\"showErrors\">\n      {{error.message}}\n    </div>\n    <table class=\"table table-striped\" v-show=\"showResults\">\n    <thead>\n      <tr>\n      <td>Кинотеатр</td>\n      <td>Aдрес</td>\n      <td>Время</td>\n      <td>Цена</td>\n      </tr>\n    </thead>\n    <tbody>\n      <tr v-if=\"showResults\" v-for=\"show in shows\">\n        <td>{{show.theater}}</td>\n        <td>{{show.address}}</td>\n        <td>{{show.time}}</td>\n        <td>{{show.price}}</td>\n      </tr>\n    </tbody>\n    </table>\n\n    </div>\n  </div>\n  </div>\n</div>\n</div>\n\n\n</template>\n\n<script>\nimport autocomplete from './autocomplete.vue';\nimport modalinfo from './modalinfo.vue';\nimport menuheader from './header.vue';\n  export default {\n    data: function () {\n      return {\n        longitude: 0,\n        latitude: 0,\n        nearMe: false,\n        withoutTime: true,\n        showTime: '',\n        shows: [],\n        result_message: '',\n        error:{\n          message: '',\n          class: 'alert alert-warning'\n        },\n        movies : [],\n        movieValue: '',\n        loading: false,\n        times: [],\n        showModal: false\n      }\n    },\n    computed:{\n      showResults(){\n        return this.shows.length != 0;\n      },\n      showErrors(){\n        return this.error.message.length != 0;\n      },\n      value(){\n        return autocomplete.selection;\n      },\n      withTime(){\n        return !this.withoutTime;\n      },\n      hasLocation(){\n        return this.longitude != 0 && this.latitude != 0;\n      }\n    },\n    methods: {\n      findMovie(e){\n        e.preventDefault();\n        this.loading = true;\n        const that = this\n        that.shows = [];\n        this.axios.post(`searchmovie`,\n                        { search: {\n                            show_time: this.showTime,\n                            near_me: this.nearMe,\n                            title: this.movieValue,\n                            with_time: this.withTime,\n                            longitude: this.longitude,\n                            latitude: this.latitude\n                            }\n                        }\n                ).then((response) => {\n          this.clearError();\n          that.result_message = response.data;\n          if(response.data.length == 0){\n             this.error.message = 'К сожалению, ничего не найдено';\n          }\n          response.data.forEach( info => {\n            that.shows.push({\n              theater: info.cinema.name,\n              address: info.cinema.address,\n              time: info.show.time,\n              price: info.show.price,\n            });\n          })\n          this.loading = false;\n        }).catch((e) => {\n          this.error.message = e.response.data.error;\n          this.loading = false;\n        });\n      },\n      moviePredict(){\n        this.axios.get('movietitles').then((response) => {\n          console.log(response.data);\n          this.movies = response.data;\n        }).catch((e) => {\n          this.error.message = e.response.data.error;\n        });\n      },\n      clearError(){\n        this.error.message = '';\n      },\n      updateMovieValue(data){\n        this.movieValue = data;\n      },\n      getTimes(){\n        let times = [];\n        let current_hour = new Date().getHours();\n        while(current_hour < 24){\n          times.push(`${current_hour}:00`);\n          current_hour++;\n        }\n        times = times.concat(['00:00', '01:00', '02:00']);\n        this.times = times;\n      },\n      getLocation(){\n        navigator.geolocation.getCurrentPosition(this.saveLocation);\n      },\n      saveLocation(location){\n        this.longitude = location.coords.longitude;\n        this.latitude = location.coords.latitude;\n      },\n    },\n    components:{\n      'autocomplete': autocomplete,\n      'modalinfo' : modalinfo,\n      'menuheader' : menuheader\n    },\n    mounted(){\n      this.moviePredict();\n      this.getTimes();\n      this.getLocation(this.saveLocation);\n    }\n  }\n</script>\n\n<style scoped>\n  p {\n    font-size: 2em;\n    text-align: center;\n  }\n  .form-group{\n    margin-top: 25px;\n  }\n  label{\n    margin: 5px;\n  }\n  form{\n    padding: 10px 0;\n  }\n  input{\n    margin: 3px;\n  }\n</style>\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -14881,14 +14881,17 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "modal-mask"
+    staticClass: "modal fade in",
+    attrs: {
+      "id": "my-modal"
+    }
   }, [_c('div', {
-    staticClass: "modal-wrapper"
+    staticClass: "modal-dialog"
   }, [_c('div', {
-    staticClass: "modal-container"
+    staticClass: "modal-content"
   }, [_c('div', {
     staticClass: "modal-header"
-  }, [_vm._t("header", [_vm._v("\n          Поиск дешевых кинобилетов в москве\n        ")])], 2), _vm._v(" "), _c('div', {
+  }, [_vm._t("header", [_vm._v("\n           Поиск дешевых кинобилетов в москве\n         ")])], 2), _vm._v(" "), _c('div', {
     staticClass: "modal-body"
   }, [_vm._t("body", [_vm._m(0)])], 2), _vm._v(" "), _c('div', {
     staticClass: "modal-footer"
@@ -14899,9 +14902,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.$emit('close')
       }
     }
-  }, [_vm._v("\n            OK\n          ")])])], 2)])])])
+  }, [_vm._v("\n             OK\n           ")])])], 2)])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('ul', [_c('li', [_vm._v("Поиск работает только на сегодняшний день в городе Москве")]), _vm._v(" "), _c('li', [_vm._v("Когда отмечена галочка рядом со мной, агрегаттор выдает все киносеансы в радиусе 10 км")]), _vm._v(" "), _c('li', [_vm._v("Вся информация взята с сайта kinohod.ru")]), _vm._v(" "), _c('li', [_vm._v("Этот сайт предназначен для не коммерческого использования и сделан ради развлечения")])])
+  return _c('ul', [_c('li', [_vm._v("Поиск работает только на сегодняшний день в городе Москве")]), _vm._v(" "), _c('li', [_vm._v("Когда отмечена галочка рядом со мной, агрегаттор выдает все киносеансы в радиусе 10 км")]), _vm._v(" "), _c('li', [_vm._v("Вся информация взята с сайта kinohod.ru")]), _vm._v(" "), _c('li', [_vm._v("Этот сайт предназначен для некоммерческого использования и сделан ради развлечения")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -14925,9 +14928,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "navbar navbar-default"
   }, [_c('div', {
     staticClass: "container-fluid"
-  }, [_vm._m(0), _vm._v(" "), _c('ul', {
-    staticClass: "nav navbar-nav pull-right"
-  }, [_c('li', [_c('a', {
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_vm._m(0), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-default pull-right",
+    attrs: {
+      "id": "about"
+    }
+  }, [_c('a', {
     attrs: {
       "href": "#"
     },
@@ -14939,8 +14947,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("О проекте")])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "navbar-header"
-  }, [_c('div', {
     attrs: {
       "id": "ticket-label"
     }
@@ -14955,7 +14961,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "aria-hidden": "true"
     }
-  })])])
+  })])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -14982,7 +14988,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "container"
+    staticClass: "container-fluid"
   }, [_c('div', {
     staticClass: "row"
   }, [_c('div', {
@@ -15104,6 +15110,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v("Целый день")])])])])]), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
+    staticClass: "form-inline"
+  }, [_c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -15139,9 +15147,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, _vm._l((_vm.times), function(time) {
     return _c('option', [_vm._v(_vm._s(time))])
-  }))]), _vm._v(" "), _c('div', {
-    staticClass: "form-inline"
-  }, [_vm._m(0), _vm._v(" "), _c('i', {
+  }))]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('i', {
     directives: [{
       name: "show",
       rawName: "v-show",

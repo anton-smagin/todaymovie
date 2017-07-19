@@ -1,40 +1,41 @@
 <template>
-  <div>
+<div>
   <menuheader @showModal="showModal = true"></menuheader>
-  <div class="container">
+  <div class="container-fluid">
   <div class="row">
   <div class="col-xs-10 col-xs-offset-1"  id="app">
     <modalinfo @close="showModal = false" v-show="showModal"></modalinfo>
     <form action="" id="search-form" @submit="findMovie">
-    <div class="row">
-      <autocomplete @select='updateMovieValue' :suggestions="movies" ></autocomplete>
-    </div>
-    <div class="row">
-    <div class="form-inline">
-      <div class="form-group">
-        <div v-show="hasLocation" class="checkbox disabled">
-          <label><input type="checkbox" name="near-me" value="" v-model="nearMe">Рядом со мной</label>
-        </div>
-        <div class="checkbox disabled">
-          <label><input type="checkbox" name="without-time" value="" v-model="withoutTime">Целый день</label>
+      <div class="row">
+        <autocomplete @select='updateMovieValue' :suggestions="movies" ></autocomplete>
+      </div>
+      <div class="row">
+      <div class="form-inline">
+        <div class="form-group">
+          <div v-show="hasLocation" class="checkbox disabled">
+            <label><input type="checkbox" name="near-me" value="" v-model="nearMe">Рядом со мной</label>
+          </div>
+          <div class="checkbox disabled">
+            <label><input type="checkbox" name="without-time" value="" v-model="withoutTime">Целый день</label>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
-    <div class="row">
-        <div class="form-group" v-show="withTime">
-          <label for="time-select">Выберите время:</label>
-          <select class="form-control" id="time-select" v-model="showTime">
-            <option v-for="time in times">{{time}}</option>
-          </select>
-        </div>
-        <div class="form-inline">
-          <div class="form-group pull-right">
-            <button type="submit" class="btn btn-default">Искать</button>
+      </div>
+      <div class="row">
+      <div class="form-inline">
+          <div class="form-group" v-show="withTime">
+            <label for="time-select">Выберите время:</label>
+            <select class="form-control" id="time-select" v-model="showTime">
+              <option v-for="time in times">{{time}}</option>
+            </select>
           </div>
-          <i v-show="loading" class="fa fa-spinner fa-spin"></i>
-       </div>
-    </div>
+
+            <div class="form-group pull-right">
+              <button type="submit" class="btn btn-default">Искать</button>
+            </div>
+            <i v-show="loading" class="fa fa-spinner fa-spin"></i>
+         </div>
+      </div>
     </form>
     <div class="row">
     <div :class="error.class" v-show="showErrors">
@@ -62,7 +63,7 @@
     </div>
   </div>
   </div>
-  </div>
+</div>
 </div>
 
 

@@ -1,15 +1,14 @@
 <template>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <div class="navbar-header">
+    <div class="row">
+
         <div id="ticket-label">
-          <i class="fa fa-ticket" id="ticket-two" aria-hidden="true"></i>
-          <i class="fa fa-ticket" aria-hidden="true"></i>
+            <i class="fa fa-ticket" id="ticket-two" aria-hidden="true"></i>
+            <i class="fa fa-ticket" aria-hidden="true"></i>
         </div>
-      </div>
-      <ul class="nav navbar-nav pull-right">
-        <li><a href="#" @click="$emit('showModal')">О проекте</a></li>
-      </ul>
+         <button class="btn btn-default pull-right" id="about"><a href="#" @click="$emit('showModal')">О проекте</a></button>
+       </div>
     </div>
   </nav>
 </template>
@@ -30,6 +29,11 @@
     position: relative;
     font-size: 1.5em;
     left: 20px;
+  }
+  #about{
+    position: relative;
+    top: -30px;
+    right: 15px;
   }
 
 </style>
