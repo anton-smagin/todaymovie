@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is repository for [hobby project](todaymovie.herokuapp.com)
 
-Things you may want to cover:
+price adn distination based today movie shedule in Moscow, Russia
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* project using vuejs + rails
