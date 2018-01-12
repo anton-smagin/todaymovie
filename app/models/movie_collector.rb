@@ -8,7 +8,7 @@ class MovieCollector
       movies = []
       15.times do |page|
         page = page + 1
-        visit "http://kinohod.ru/msk/movie/#=&page=#{page}"
+        visit "https://kinohod.ru/msk/movie/#=&page=#{page}"
         sleep 2
         break if has_content?('Фильмов по вашему запросу не найдено.')
         all(".info").each do |info|
@@ -19,4 +19,3 @@ class MovieCollector
     end
   end
 end
-

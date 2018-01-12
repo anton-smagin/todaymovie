@@ -1,15 +1,16 @@
-FactoryGirl.define do
-  THEATRE_LONGITUDE = Faker::Number.decimal(2, 5)
-  THEATRE_LATITUDE = Faker::Number.decimal(2, 5)
+FactoryBot.define do
+  theater_logitude = Faker::Number.decimal(2, 5)
+  theatre_latitude = Faker::Number.decimal(2, 5)
   factory :theatre do
-    title    { Faker::App.name }
-    longitude { THEATRE_LONGITUDE }
-    latitude { THEATRE_LATITUDE }
+    title { Faker::App.name }
+    longitude { theater_logitude }
+    latitude { theatre_latitude }
     address { Faker::Address.street_address }
-    latlon {
+    latlon do
       RGeo::ActiveRecord::SpatialFactoryStore.instance
-                                             .factory(:geo_type => 'point')
-                                             .point(THEATRE_LATITUDE, THEATRE_LONGITUDE)
-    }
+                                             .factory(geo_type: 'point')
+                                             .point(theatre_latitude,
+                                                    theater_logitude)
+    end
   end
 end

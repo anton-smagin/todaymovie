@@ -24,7 +24,7 @@ export default {
             required: true
         },
     },
-    data: function(){
+    data: () => {
     return {
       open: false,
       current: 0,
@@ -33,56 +33,56 @@ export default {
     }
     ,computed: {
     //Filtering the suggestion based on the input
-    matches() {
-        return this.suggestions.filter((str) => {
-            return str.toLowerCase().indexOf(this.selection.toLowerCase()) >= 0;
-        });
-    },
+        matches() {
+            return this.suggestions.filter((str) => {
+                return str.toLowerCase().indexOf(this.selection.toLowerCase()) >= 0;
+            });
+        },
 
-    //The flag
-    openSuggestion() {
-        return this.selection !== "" &&
-               this.matches.length != 0 &&
-               this.open === true;
-    },
+        //The flag
+        openSuggestion() {
+            return this.selection !== "" &&
+                   this.matches.length != 0 &&
+                   this.open === true;
+        },
     }, methods: {
-    enter() {
-        this.selection = this.matches[this.current];
-        this.$emit('select', this.selection);
-        this.open = false;
-    },
+        enter() {
+            this.selection = this.matches[this.current];
+            this.$emit('select', this.selection);
+            this.open = false;
+        },
 
-    //When up pressed while suggestions are open
-    up() {
-      if(this.current > 0)
-        this.current--;
-    },
+        //When up pressed while suggestions are open
+        up() {
+          if(this.current > 0)
+            this.current--;
+        },
 
-    //When up pressed while suggestions are open
-    down() {
-      if(this.current < this.suggestions.length - 1)
-        this.current++;
-    },
+        //When up pressed while suggestions are open
+        down() {
+          if(this.current < this.suggestions.length - 1)
+            this.current++;
+        },
 
-    //For highlighting element
-    isActive(index) {
-      return index === this.current;
-    },
+        //For highlighting element
+        isActive(index) {
+          return index === this.current;
+        },
 
-    //When the user changes input
-    change() {
-      if (this.open == false) {
-        this.open = true;
-        this.current = 0;
-        }
-    },
+        //When the user changes input
+        change() {
+          if (this.open == false) {
+            this.open = true;
+            this.current = 0;
+            }
+        },
 
-    //When one of the suggestion is clicked
-    suggestionClick(index) {
-        this.selection = this.matches[index];
-        this.$emit('select', this.selection);
-        this.open = false;
-    },
+        //When one of the suggestion is clicked
+        suggestionClick(index) {
+            this.selection = this.matches[index];
+            this.$emit('select', this.selection);
+            this.open = false;
+        },
   }
 
 }

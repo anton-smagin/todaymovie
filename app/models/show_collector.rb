@@ -1,15 +1,13 @@
 class ShowCollector
-  attr_accessor :theatres, :shows, :movies
   def collect_all_shows
     ActiveRecord::Base.transaction do
-      DatabaseCleaner.clean_with(:truncation, reset_ids: true, only: %w(shows))
-      movies = Movie.all.to_a
+      DatabaseCleaner.clean_with(:truncation, reset_ids: true, only: %w[shows])
       movies.each do |movie|
         save_shows(movie)
       end
       Show.create(shows)
-      movies_with_shows = shows.map{ |show| show[:movie_id]}
-      Movie.where(id:movies_with_shows).update_all(has_shows: true)
+      movies_with_shows = shows.map { |show| show[:movie_id] }
+      Movie.where(id: movies_with_shows).update_all(has_shows: true)
     end
   end
 
@@ -24,11 +22,11 @@ class ShowCollector
     show[:time_table].each do |s|
       next if s[:price].zero?
       time = s[:time].in_time_zone
-      time = time + 1.day if time.utc.to_date == DateTime.yesterday
-      shows << {theatre_id: theatre.id,
-                movie_id: movie.id,
-                price: s[:price],
-                show_time: time}
+      time += 1.day if time.utc.to_date == DateTime.yesterday
+      shows << { theatre_id: theatre.id,
+                 movie_id: movie.id,
+                 price: s[:price],
+                 show_time: time }
     end
   end
 
@@ -37,16 +35,16 @@ class ShowCollector
     doc = Nokogiri::HTML(html)
     movie_info = []
     doc.css('.mblock').each do |block|
-      showes = []
+      shows = []
       block.css('.time').css('.root').each do |tblock|
-        showes << { time: tblock.css('h1').text, price: tblock.css('.second').text.scan(/\d+/).first.to_i}
+        shows << { time: tblock.css('h1').text, price: tblock.css('.second').text.scan(/\d+/).first.to_i }
       end
       movie_info <<
-       {
-        cinema_theater: JSON.parse(block['data-cinema']),
-        time_table: showes,
-        movie: movie
-       }
+        {
+          cinema_theater: JSON.parse(block['data-cinema']),
+          time_table: shows,
+          movie: movie
+        }
     end
     movie_info
   end
@@ -59,10 +57,10 @@ class ShowCollector
         if s[:price] < cheapest_price && s[:price] != 0
           cheapest_price = s[:price]
           cheapest_shows = [{ cinema: beautify_cinema_theater(show[:cinema_theater]),
-                              show: {time: s[:time], price: s[:price]} }]
+                              show: { time: s[:time], price: s[:price] } }]
         elsif s[:price] == cheapest_price
           cheapest_shows << { cinema: beautify_cinema_theater(show[:cinema_theater]),
-                               show: {time: s[:time], price: s[:price]} }
+                              show: { time: s[:time], price: s[:price] } }
         end
       end
     end
@@ -73,16 +71,16 @@ class ShowCollector
     baloon = data.first.second['balloon'] # what?????
     geocords = data.first.second['geoCoords']
     {
-    title: baloon['cinema_name'],
-    address: baloon['cinema_address'],
-    latlon:  RGeo::Geographic.spherical_factory(srid: 4326).point(geocords['latitude'],  geocords['longitude']),
-    longitude: geocords['longitude'],
-    latitude: geocords['latitude']
+      title: baloon['cinema_name'],
+      address: baloon['cinema_address'],
+      latlon:  RGeo::Geographic.spherical_factory(srid: 4326).point(geocords['latitude'], geocords['longitude']),
+      longitude: geocords['longitude'],
+      latitude: geocords['latitude']
     }
   end
 
   def movies
-    @movies ||= []
+    @movies ||= Movie.all.to_a
   end
 
   def theatres

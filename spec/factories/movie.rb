@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :movie do
-    title    { Faker::App.name }
+    title { Faker::App.name }
     link { Faker::Internet.url }
     has_shows { Faker::Boolean.boolean }
 
